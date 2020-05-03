@@ -1,0 +1,17 @@
+create_parking_lot 8
+park KA-01-HH-1234
+park KA-01-HH-9999
+park KA-01-BB-0001
+park KA-01-HH-7777
+park KA-01-HH-2701
+park KA-01-HH-3141
+park KA-01-NN-3141
+park KA-04-HH-8141
+leave KA-01-HH-3141 4
+leave KA-01-HH-7777 6
+leave KA-02-HH-7777 6
+status
+park KA-01-P-3333
+park DL-12-AA-9999
+park NN-12-AA-7879
+status

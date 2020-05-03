@@ -1,0 +1,26 @@
+{
+  "name": "parking_lot",
+  "version": "1.0.0",
+  "description": "Interview Parking lot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node parking_lot/index.js",
+    "test-unit": "mocha tests/specs.js",
+    "file-mode": "node parking_lot/index.js"
+  },
+  "author": "ngoc pham bao",
+  "devDependencies": {
+    "async": "3.1.0",
+    "chai": "4.2.0",
+    "chalk": "3.0.0",
+    "eslint": "6.6.0",
+    "nyc": "14.1.1",
+    "parse-gitignore": "1.0.1",
+    "pkg": "4.4.0",
+    "recursive-readdir-synchronous": "0.0.4",
+    "shelljs": "0.8.3"
+  },
+  "dependencies": {
+    "mocha": "^7.1.2"
+  }
+}

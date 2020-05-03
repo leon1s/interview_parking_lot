@@ -1,45 +1,71 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
-
----
-
-## Edit a file
-
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
-
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+## Problem Statement
+I own a parking lot that can hold up to 'n' cars at any given point in time. 
+Each slot is given a number starting at 1 increasing with increasing distance from the entry point in steps of one. I want to create an automated ticketing system that allows my customers to use my parking lot without human intervention.
+When a car enters my parking lot, I want to have a ticket issued to the driver. 
+The ticket issuing process includes us documenting the registration number (number plate) and the colour of the car and allocating an available parking slot to the car before actually handing over a ticket to the driver (we assume that our customers are nice enough to always park in the slots allocated to them). The customer should be allocated a parking slot which is nearest to the entry. At the exit the customer returns the ticket with the time the car was parked in the lot, which then marks the slot they were using as being available. Total parking charge should be calculated as per the parking time. Charge applicable is $10 for first 2 hours and $10 for every additional hour.
+We interact with the system via a simple set of commands which produce a specific output. Please take a look at the example below, which includes all the commands
+you need to support - they're self explanatory. The system should accept a filename as a parameter at the command prompt and read the commands from that file.
 
 ---
 
-## Create a file
+## Commands accepted
 
-Next, you’ll add a new file to this repository.
+1. Create parking lot of size n: create_parking_lot {capacity}
+2. Park a car: park {car_number}
+3. Remove (Unpark) car from : leave {car_number} {hours}
+4. Print status of parking slot: status
 
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
-
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
-
+Note: we only support input from a text file.
 ---
 
-## Clone a repository
+## How to run
 
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
+- To install all dependencies, compile and run tests:
+    - $sh bin/setup.sh.
+- To run the code so it accepts input from a file:
+    - $sh bin/parking_lot.sh file_inputs.txt.
+    
+Note: Input text files must be put in bin
+---
 
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
+## Functional test
+- Test case run by mocha.
+- Resource should be put it "tests/resource"
 
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+## Sample
+bin % sh parking_lot.sh test1.txt
+Created a parking lot with 8 slots.
+Allocated slot number: 1
+Allocated slot number: 2
+Allocated slot number: 3
+Allocated slot number: 4
+Allocated slot number: 5
+Allocated slot number: 6
+Allocated slot number: 7
+Allocated slot number: 8
+Registration number KA-01-HH-3141 with Slot Number 6 is free with Charge 30
+Registration number KA-01-HH-7777 with Slot Number 4 is free with Charge 50
+Registration number KA-02-HH-7777 is not found
+Slot No. Registration No.
+1.  KA-01-HH-1234
+2.  KA-01-HH-9999
+3.  KA-01-BB-0001
+5.  KA-01-HH-2701
+7.  KA-01-NN-3141
+8.  KA-04-HH-8141
+Allocated slot number: 4
+Allocated slot number: 6
+Sorry, parking lot is full
+Slot No. Registration No.
+1.  KA-01-HH-1234
+2.  KA-01-HH-9999
+3.  KA-01-BB-0001
+4.  KA-01-P-3333
+5.  KA-01-HH-2701
+6.  DL-12-AA-9999
+7.  KA-01-NN-3141
+8.  KA-04-HH-8141
+
+

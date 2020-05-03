@@ -1,7 +1,6 @@
 #!/bin/bash
 
 eval file="${1:-/dev/stdin}"
-echo "$file"
-node src/index.js $file
+node ./../parking_lot/index.js $file
 
 
